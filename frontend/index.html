@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação JWT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <header>
+            <div class="container-header">
+                <h1>TECSEC -Exercício de autenticação JWT 🔐</h1>
+            </div>
+            <nav>
+                <div class="logo">TECSEC</div>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="grupo.html">EQUIPE</a></li>
+                </ul>
+            </nav>
+        </header>
+    <div class="container">
+        <h1>Exercício de autenticação JWT</h1>
+
+        <div id="login-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Usuário" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p id="login-message"></p>
+        </div>
+
+        <div id="secret-section" class="hidden">
+            <p id="secret-message"></p>
+            <button id="logout-button">Sair</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
