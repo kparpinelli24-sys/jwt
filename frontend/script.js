@@ -1,7 +1,4 @@
 const form = document.getElementById('login-form');
-const mensagem = document.getElementById('mensagem');
-
-const API_URL = 'http://localhost:3000';
 
 form.addEventListener('submit', async (e) => {
 
@@ -12,7 +9,7 @@ form.addEventListener('submit', async (e) => {
 
     try {
 
-        const response = await fetch(`${API_URL}/login`, {
+        const response = await fetch('http://localhost:3000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,23 +22,27 @@ form.addEventListener('submit', async (e) => {
 
         const data = await response.json();
 
-        if (data.auth) {
+        console.log(data);
+
+        if (data.auth === true) {
 
             // salva token
             localStorage.setItem('jwt-token', data.token);
 
-            // REDIRECIONA
-            window.location.href = 'grupo.html';
+            console.log('REDIRECIONANDO...');
+
+            // redireciona
+            window.location.href = '/grupo.html';
 
         } else {
 
-            mensagem.textContent = data.message;
+            alert('Login inválido');
         }
 
-    } catch (error) {
+    } catch (err) {
 
-        console.error(error);
+        console.error(err);
 
-        mensagem.textContent = 'Erro no servidor';
+        alert('Erro no login');
     }
 });
